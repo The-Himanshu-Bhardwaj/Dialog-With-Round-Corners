@@ -13,6 +13,7 @@ class MainActivity : AppCompatActivity() {
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+        // DIALOG THEME IS DEFINED UNDER THEMES.XML
         binding.tv.setOnClickListener {
             val builder = AlertDialog.Builder(this, R.style.CustomAlertDialog)
             builder.apply {
