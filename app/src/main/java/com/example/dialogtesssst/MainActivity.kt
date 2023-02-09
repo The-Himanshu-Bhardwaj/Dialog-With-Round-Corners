@@ -1,9 +1,11 @@
 package com.example.dialogtesssst
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.appcompat.app.AlertDialog
 import com.example.dialogtesssst.databinding.ActivityMainBinding
+import com.skydoves.transformationlayout.TransformationCompat
 
 class MainActivity : AppCompatActivity() {
 
@@ -13,14 +15,15 @@ class MainActivity : AppCompatActivity() {
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        // DIALOG THEME IS DEFINED UNDER THEMES.XML
-        binding.tv.setOnClickListener {
-            val builder = AlertDialog.Builder(this, R.style.CustomAlertDialog)
-            builder.apply {
-                setTitle("title")
-                setMessage("message")
-            }.show()
+        binding.fab.setOnClickListener {
+            val intent = Intent(this, SecondActivity::class.java)
+            TransformationCompat.startActivity(binding.transformationLayout, intent)
         }
+
+        binding.myCardView.setOnClickListener {
+            binding.transformationLayout.finishTransform()
+        }
+
 
     }
 }
